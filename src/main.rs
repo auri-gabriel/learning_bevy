@@ -4,24 +4,25 @@ use player::PlayerPlugin;
 mod components;
 mod player;
 
-// region: -- Assests Constant
+// region: --- Assests Constant
 
 const PLAYER_SPRITE: &str = "player_a_01.png";
 const PLAYER_SIZE: (f32, f32) = (144., 75.);
+const PLAYER_LASER_SPRITE: &str = "laser_a_01.png";
+const PLAYER_LASER_SIZE: (f32, f32) = (9., 54.);
 
 const SPRITE_SCALE: f32 = 0.5;
 
-// endregion: -- Assests Constant
+// endregion: --- Assests Constant
 
-// region -- Game Constants
+// region: --- Game Constants
 
 const TIME_STEP: f32 = 1. / 60.;
 const BASE_SPEED: f32 = 500.;
 
-// endregion -- Game Constants
+// endregion: --- Game Constants
 
-// region -- Resources
-
+// region: --- Resources
 pub struct WinSize {
     pub w: f32,
     pub h: f32,
@@ -29,9 +30,9 @@ pub struct WinSize {
 
 struct GameTextures {
     player: Handle<Image>,
+    player_laser: Handle<Image>,
 }
-
-// endregion -- Resources
+// endregion: --- Resources
 
 fn main() {
     App::new()
@@ -67,6 +68,7 @@ fn setup_system(
     //add GameTexture resource
     let game_textures = GameTextures {
         player: asset_server.load(PLAYER_SPRITE),
+        player_laser: asset_server.load(PLAYER_LASER_SPRITE),
     };
     commands.insert_resource(game_textures);
 }
