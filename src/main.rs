@@ -1,7 +1,4 @@
-use bevy::{
-    math::Vec3Swizzles, prelude::*, reflect::erased_serde::private::serde::__private::de,
-    sprite::collide_aabb::collide,
-};
+use bevy::{math::Vec3Swizzles, prelude::*, sprite::collide_aabb::collide};
 use components::{
     Enemy, Explosion, ExplosionTimer, ExplosionToSpawn, FromPlayer, Laser, Movable, SpriteSize,
     Velocity,
